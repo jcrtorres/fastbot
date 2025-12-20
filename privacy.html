@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fastbot – Privacy Policy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { accent: '#34C759' }}}}
+  </script>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+<div class="fixed top-4 right-4 z-50">
+  <button id="langBtn" class="px-4 py-2 rounded-full bg-gray-900 border border-gray-700 text-sm hover:border-accent transition">EN</button>
+</div>
+
+<main class="max-w-4xl mx-auto px-6 py-20 space-y-10">
+  <header class="space-y-4">
+    <h1 class="text-4xl font-semibold" data-i18n="title"></h1>
+    <p class="text-gray-400" data-i18n="updated"></p>
+  </header>
+
+  <section class="space-y-4" data-i18n="content"></section>
+</main>
+
+<script>
+const translations = {
+  es: {
+    title: 'Aviso de Privacidad – FastBot',
+    updated: 'Última actualización: 20 de Diciembre de 2025',
+    content: `
+<h2 class='text-2xl font-semibold'>1. Responsable del tratamiento</h2>
+<p>Fastbot es responsable del tratamiento de los datos personales de los usuarios, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) y demás disposiciones aplicables.</p>
+
+<h2 class='text-2xl font-semibold'>2. Información que recopilamos</h2>
+<p>Fastbot recopila únicamente la información necesaria para el funcionamiento de la App y la prestación de sus servicios.</p>
+
+<ul class='list-disc list-inside'>
+  <li><strong>Datos de identificación:</strong> nombre del usuario, correo electrónico y un identificador único (UUID).</li>
+  <li><strong>Configuración de agentes de IA:</strong> nombre, descripción, tipo de agente, prompts personalizados, etiquetas (tags), API keys y tokens de autenticación.</li>
+  <li><strong>Contenido generado por el usuario:</strong> mensajes de texto, imágenes y documentos PDF enviados durante las conversaciones con los agentes.</li>
+  <li><strong>Datos de suscripción:</strong> estado de la suscripción, tipo de plan y vigencia.</li>
+</ul>
+
+<h2 class='text-2xl font-semibold'>3. Suscripciones y pagos</h2>
+<p>Fastbot ofrece funciones premium mediante suscripciones administradas exclusivamente por Apple a través de In-App Purchases.</p>
+<p>Fastbot no recopila, almacena ni procesa información financiera sensible, como números de tarjetas bancarias o datos de pago. Toda la información relacionada con pagos es gestionada directamente por Apple conforme a sus políticas de privacidad.</p>
+
+<h2 class='text-2xl font-semibold'>4. Uso de agentes de inteligencia artificial</h2>
+<p>Fastbot permite al usuario interactuar con agentes de inteligencia artificial de terceros, así como con agentes personalizados configurados por el propio usuario.</p>
+<p>Cuando el usuario utiliza dichos agentes, la información ingresada puede ser transmitida directamente al proveedor del agente a través de su API. Fastbot no controla el tratamiento posterior de la información por parte de dichos terceros.</p>
+<p>El uso de agentes de terceros se realiza bajo la responsabilidad del usuario.</p>
+
+<h2 class='text-2xl font-semibold'>5. Almacenamiento de la información</h2>
+<p>La información del usuario se almacena principalmente de forma local en el dispositivo mediante SwiftData. Fastbot no realiza copias de seguridad automáticas ni sincronización en servidores propios, salvo que se indique expresamente dentro de la App.</p>
+
+<h2 class='text-2xl font-semibold'>6. Finalidades del tratamiento</h2>
+<ul class='list-disc list-inside'>
+  <li>Proveer y operar las funcionalidades de la App.</li>
+  <li>Permitir la gestión y ejecución de agentes de IA.</li>
+  <li>Personalizar la experiencia del usuario.</li>
+  <li>Garantizar la seguridad y estabilidad de la App.</li>
+</ul>
+
+<h2 class='text-2xl font-semibold'>7. Medidas de seguridad</h2>
+<p>Fastbot implementa medidas técnicas y administrativas razonables para proteger la información del usuario. No obstante, el usuario reconoce que ningún sistema es completamente infalible.</p>
+
+<h2 class='text-2xl font-semibold'>8. Cambios al Aviso de Privacidad</h2>
+<p>Fastbot se reserva el derecho de modificar el presente Aviso de Privacidad en cualquier momento.</p>
+
+<h2 class='text-2xl font-semibold'>9. Consentimiento</h2>
+<p>Al utilizar Fastbot, el usuario declara haber leído, entendido y aceptado el presente Aviso de Privacidad.</p>
+
+`
+  },
+  en: {
+    title: 'Privacy Policy – FastBot',
+    updated: 'Last updated: December 20, 2025',
+    content: `
+<h2 class='text-2xl font-semibold'>1. Data Controller</h2>
+<p>Fastbot is responsible for the processing of users’ personal data in accordance with applicable data protection laws.</p>
+
+<h2 class='text-2xl font-semibold'>2. Information We Collect</h2>
+<p>Fastbot collects only the information necessary to operate the App and provide its services.</p>
+
+<ul class='list-disc list-inside'>
+  <li><strong>Identification data:</strong> user name, email address, and a unique user identifier (UUID).</li>
+  <li><strong>AI agent configuration:</strong> agent name, description, type, custom prompts, tags, API keys, and authentication tokens.</li>
+  <li><strong>User-generated content:</strong> text messages, images, and PDF documents shared through chats.</li>
+  <li><strong>Subscription data:</strong> subscription status, plan type, and validity period.</li>
+</ul>
+
+<h2 class='text-2xl font-semibold'>3. Subscriptions and Payments</h2>
+<p>Fastbot offers premium features through subscriptions managed exclusively by Apple via In-App Purchases.</p>
+<p>Fastbot does not collect or store credit card, banking, or payment information. All payment processing is handled directly by Apple in accordance with its privacy policies.</p>
+
+<h2 class='text-2xl font-semibold'>4. Use of Artificial Intelligence Agents</h2>
+<p>Fastbot allows users to interact with third-party AI agents as well as custom agents configured by the user.</p>
+<p>When using such agents, user-provided information may be transmitted directly to the selected provider through its API. Fastbot does not control how third parties process such information.</p>
+<p>The use of third-party agents is at the user's own risk.</p>
+
+<h2 class='text-2xl font-semibold'>5. Data Storage</h2>
+<p>User information is primarily stored locally on the device using SwiftData. Fastbot does not automatically back up or sync this data to its own servers unless explicitly stated within the App.</p>
+
+<h2 class='text-2xl font-semibold'>6. Purpose of Processing</h2>
+<ul class='list-disc list-inside'>
+  <li>Operate and maintain the App.</li>
+  <li>Enable the creation and use of AI agents.</li>
+  <li>Personalize the user experience.</li>
+  <li>Ensure security and stability.</li>
+</ul>
+
+<h2 class='text-2xl font-semibold'>7. User Rights</h2>
+<p>Users may request access, correction, deletion, or objection to the processing of their personal data by contacting soporte@fastbot.app.</p>
+
+<h2 class='text-2xl font-semibold'>8. Changes to This Privacy Policy</h2>
+<p>Fastbot reserves the right to modify this Privacy Policy at any time.</p>
+
+<h2 class='text-2xl font-semibold'>9. Consent</h2>
+<p>By using Fastbot, you acknowledge that you have read, understood, and agreed to this Privacy Policy.</p>
+
+`
+  }
+}
+
+const btn = document.getElementById('langBtn')
+function setLang(l) {
+  document.documentElement.lang = l
+  btn.textContent = l === 'es' ? 'EN' : 'ES'
+  document.querySelector('[data-i18n="title"]').innerHTML = translations[l].title
+  document.querySelector('[data-i18n="updated"]').innerHTML = translations[l].updated
+  document.querySelector('[data-i18n="content"]').innerHTML = translations[l].content
+}
+btn.onclick = () => setLang(document.documentElement.lang === 'es' ? 'en' : 'es')
+setLang('es')
+</script>
+
+</body>
+</html>
