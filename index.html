@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fastbot – AI Agents Hub</title>
+  <meta name="description" content="Fastbot es un hub de agentes de inteligencia artificial para automatizar flujos, escalar operaciones y centralizar bots de AI desde una app móvil.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: '#34C759' },
+          boxShadow: {
+            apple: '0 20px 40px rgba(0,0,0,0.35)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .reveal { opacity: 0; transform: translateY(24px); }
+    .reveal.visible { opacity: 1; transform: translateY(0); transition: all .8s cubic-bezier(.16,1,.3,1); }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+<!-- LANGUAGE SWITCH -->
+<div class="fixed top-5 right-5 z-50">
+  <button id="langBtn" class="px-4 py-2 rounded-full bg-gray-900 border border-gray-700 text-sm hover:border-accent transition">EN</button>
+</div>
+
+<!-- HERO -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-emerald-500/10 to-cyan-500/10"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 py-28 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+    <div class="reveal">
+      <h1 class="text-4xl md:text-6xl font-semibold leading-tight" data-i18n="title"></h1>
+      <p class="mt-6 text-lg text-gray-300" data-i18n="subtitle"></p>
+
+      <!-- CTAs -->
+      <div class="mt-10 flex flex-nowrap gap-4">
+        <a href="https://apps.apple.com" target="_blank" class="h-14 w-44 flex items-center justify-center rounded-xl bg-black shadow-apple active:scale-95 transition">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" class="h-full w-full object-contain" />
+        </a>
+        <a href="#screens" class="h-14 w-44 flex items-center justify-center rounded-xl border border-accent text-accent font-medium hover:bg-accent hover:text-gray-900 transition active:scale-95" data-i18n="ctaFeatures"></a>
+      </div>
+    </div>
+
+    <!-- iPhone (hidden on mobile) -->
+    <div class="hidden md:flex justify-center reveal">
+      <img src="resource/images/fastbot-screen-captures/chat-list-portrait.png" class="rounded-[3.5rem] shadow-apple" />
+    </div>
+
+  </div>
+</section>
+
+<!-- VIEW APP / SCREENSHOTS -->
+<section id="screens" class="max-w-7xl mx-auto px-6 py-24 reveal">
+  <h2 class="text-3xl font-semibold text-center" data-i18n="screensTitle"></h2>
+  <p class="mt-4 text-center text-gray-400" data-i18n="screensSubtitle"></p>
+
+  <div class="mt-12 flex md:grid md:grid-cols-5 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory">
+    <div class="min-w-[240px] snap-center">
+      <img src="resource/images/fastbot-screen-captures/agent-list.png" class="rounded-2xl shadow-apple" />
+      <p class="mt-2 text-sm text-gray-400" data-i18n="shot1"></p>
+    </div>
+    <div class="min-w-[240px] snap-center">
+      <img src="resource/images/fastbot-screen-captures/chat-list.png" class="rounded-2xl shadow-apple" />
+      <p class="mt-2 text-sm text-gray-400" data-i18n="shot2"></p>
+    </div>
+    <div class="min-w-[240px] snap-center">
+      <img src="resource/images/fastbot-screen-captures/chat-without-notification.png" class="rounded-2xl shadow-apple" />
+      <p class="mt-2 text-sm text-gray-400" data-i18n="shot3"></p>
+    </div>
+    <div class="min-w-[240px] snap-center">
+      <img src="resource/images/fastbot-screen-captures/agent.png" class="rounded-2xl shadow-apple" />
+      <p class="mt-2 text-sm text-gray-400" data-i18n="shot4"></p>
+    </div>
+        <div class="min-w-[240px] snap-center">
+      <img src="resource/images/fastbot-screen-captures/settings.png" class="rounded-2xl shadow-apple" />
+      <p class="mt-2 text-sm text-gray-400" data-i18n="shot5"></p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="bg-gray-900/40 py-24">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 reveal">
+    <div class="p-8 rounded-3xl bg-gray-900 border border-gray-800">
+      <div class="text-accent text-3xl mb-4">⚡</div>
+      <h3 class="text-xl font-medium" data-i18n="featureTitle1"></h3>
+      <p class="mt-2 text-gray-400" data-i18n="feature1"></p>
+    </div>
+    <div class="p-8 rounded-3xl bg-gray-900 border border-gray-800">
+      <div class="text-accent text-3xl mb-4">🧠</div>
+      <h3 class="text-xl font-medium" data-i18n="featureTitle2"></h3>
+      <p class="mt-2 text-gray-400" data-i18n="feature2"></p>
+    </div>
+    <div class="p-8 rounded-3xl bg-gray-900 border border-gray-800">
+      <div class="text-accent text-3xl mb-4">🤖</div>
+      <h3 class="text-xl font-medium" data-i18n="featureTitle3"></h3>
+      <p class="mt-2 text-gray-400" data-i18n="feature3"></p>
+    </div>
+  </div">
+</section>
+
+<!-- FINAL CTA -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-accent to-emerald-400"></div>
+  <div class="relative max-w-4xl mx-auto px-6 py-24 text-center reveal">
+    <h2 class="text-3xl md:text-4xl font-semibold text-gray-900" data-i18n="ctaTitle"></h2>
+    <p class="mt-4 text-lg text-gray-800" data-i18n="ctaSubtitle"></p>
+  </div>
+</section>
+
+<footer class="bg-gray-950 border-t border-gray-800 py-10">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between text-gray-500">
+    <span>© 2025 Fastbot</span>
+    <div class="flex gap-6">
+      <a href="#" data-i18n="privacy"></a>
+      <a href="#" data-i18n="terms"></a>
+      <a href="#" data-i18n="contact"></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const translations={
+ es:{
+  title:'Fastbot<br/><span class="text-accent">Tu hub de agentes AI</span>',
+  subtitle:'Automatiza y escala agentes inteligentes desde tu iPhone.',
+  ctaFeatures:'Ver la app',
+  screensTitle:'Vista previa',
+  screensSubtitle:'Diseñada para productividad móvil',
+  shot1:'Agentes',
+  shot2:'Chats',
+  shot3:'Chat con Agente',
+  shot4:'Agente',
+  shot5:'Configuración',
+  featureTitle1: "Automatización rápida",
+  feature1: "Crea flujos de AI en segundos.",
+  featureTitle2: "Organiza tus Agentes",
+  feature2: "Utiliza los agentes mas populares o crea agentes personalizados.",
+  featureTitle3: "Múltiples Agentes",
+  feature3: "Chatea y colabora con varios agentes a la vez.",
+  ctaTitle:'Empieza con Fastbot',
+  ctaSubtitle:'Disponible pronto en App Store',
+  privacy:'Privacidad',
+  terms:'Términos',
+  contact:'Contacto'},
+ en:{
+  title:'Fastbot<br/><span class="text-accent">Your AI agents hub</span>',
+  subtitle:'Automate and scale intelligent agents from your iPhone.',
+  ctaFeatures:'View app',
+  screensTitle:'Preview',
+  screensSubtitle:'Built for mobile productivity',
+  shot1:'Agents',
+  shot2:'Chats',
+  shot3:'Agent Chat',
+  shot4:'Agent',
+  shot5:'Settings',
+  featureTitle1: "Fast automation",
+  feature1: "Create AI workflows in seconds.",
+  featureTitle2: "Organize your Agents",
+  feature2: "Use popular agents or create custom ones.",
+  featureTitle3: "Multiple Agents",
+  feature3: "Chat and collaborate with multiple agents simultaneously.",
+  ctaTitle:'Get started with Fastbot',
+  ctaSubtitle:'Coming soon to the App Store',
+  privacy:'Privacy',
+  terms:'Terms',
+  contact:'Contact'}
+}
+const btn=document.getElementById('langBtn')
+function setLang(l){document.documentElement.lang=l;btn.textContent=l==='es'?'EN':'ES';document.querySelectorAll('[data-i18n]').forEach(e=>e.innerHTML=translations[l][e.dataset.i18n])}
+btn.onclick=()=>setLang(document.documentElement.lang==='es'?'en':'es')
+setLang('es')
+
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&(x.target.classList.add('visible'),obs.unobserve(x.target))),{threshold:.15})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+</script>
+
+</body>
+</html>
