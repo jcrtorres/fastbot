@@ -84,6 +84,51 @@
       }
     }
   </style>
+
+  <style>
+/* CAROUSEL EDGE FADE (APPLE STYLE) */
+.carousel-fade {
+  position: relative;
+}
+
+.carousel-fade::before,
+.carousel-fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.carousel-fade::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(3,7,18,1) 0%,
+    rgba(3,7,18,0) 100%
+  );
+}
+
+.carousel-fade::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(3,7,18,1) 0%,
+    rgba(3,7,18,0) 100%
+  );
+}
+
+/* Disable fade on mobile edges overflow */
+@media (max-width: 768px) {
+  .carousel-fade::before,
+  .carousel-fade::after {
+    width: 32px;
+  }
+}
+</style>
+
 </head>
 
 <body class="bg-gray-950 text-gray-100 antialiased">
@@ -176,11 +221,14 @@
   </button>
 
     <!-- CAROUSEL -->
+    <div class="carousel-fade">
     <div
       id="screensCarousel"
       class="flex gap-6 overflow-x-auto scroll-smooth
-             snap-x snap-mandatory
-             [&::-webkit-scrollbar]:hidden">
+            snap-x snap-mandatory
+            px-[10vw] md:px-0
+            [&::-webkit-scrollbar]:hidden">
+
 
       <!-- ITEM -->
       <div class="snap-center shrink-0 w-[80%] sm:w-[60%] md:w-[30%]">
@@ -212,7 +260,7 @@
              class="rounded-2xl shadow-apple mx-auto" />
         <p class="mt-3 text-sm text-center text-gray-400" data-i18n="shot5"></p>
       </div>
-
+      </div>
     </div>
 
 <button
