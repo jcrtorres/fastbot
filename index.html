@@ -146,34 +146,78 @@
   </div>
 </section>
 
-<!-- SCREENSHOTS -->
+<!-- SCREENSHOTS / CAROUSEL -->
 <section id="screens" class="max-w-7xl mx-auto px-6 py-24 reveal">
+
   <h2 class="text-3xl font-semibold text-center" data-i18n="screensTitle"></h2>
   <p class="mt-4 text-center text-gray-400" data-i18n="screensSubtitle"></p>
 
-  <div class="mt-12 flex md:grid md:grid-cols-5 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory">
-    <div class="min-w-[240px] snap-center">
-      <img src="resource/images/fastbot-screen-captures/agent-list.png" class="rounded-2xl shadow-apple">
-      <p class="mt-2 text-sm text-gray-400" data-i18n="shot1"></p>
+  <!-- CONTROLS + CAROUSEL -->
+  <div class="mt-16 grid grid-cols-[auto_1fr_auto] items-center gap-6">
+
+    <!-- LEFT BUTTON (OUTSIDE) -->
+    <button
+      aria-label="Previous"
+      class="hidden md:flex h-12 w-12 items-center justify-center
+             rounded-full border border-gray-700 bg-gray-900/80
+             hover:border-accent transition"
+      onclick="scrollScreens(-1)">
+      <span class="text-xl">&lt;</span>
+    </button>
+
+    <!-- CAROUSEL -->
+    <div
+      id="screensCarousel"
+      class="flex gap-6 overflow-x-auto scroll-smooth
+             snap-x snap-mandatory
+             [&::-webkit-scrollbar]:hidden">
+
+      <!-- ITEM -->
+      <div class="snap-center shrink-0 w-[80%] sm:w-[60%] md:w-[30%]">
+        <img src="resource/images/fastbot-screen-captures/agent-list.png"
+             class="rounded-2xl shadow-apple mx-auto" />
+        <p class="mt-3 text-sm text-center text-gray-400" data-i18n="shot1"></p>
+      </div>
+
+      <div class="snap-center shrink-0 w-[80%] sm:w-[60%] md:w-[30%]">
+        <img src="resource/images/fastbot-screen-captures/chat-list.png"
+             class="rounded-2xl shadow-apple mx-auto" />
+        <p class="mt-3 text-sm text-center text-gray-400" data-i18n="shot2"></p>
+      </div>
+
+      <div class="snap-center shrink-0 w-[80%] sm:w-[60%] md:w-[30%]">
+        <img src="resource/images/fastbot-screen-captures/chat-without-notification.png"
+             class="rounded-2xl shadow-apple mx-auto" />
+        <p class="mt-3 text-sm text-center text-gray-400" data-i18n="shot3"></p>
+      </div>
+
+      <div class="snap-center shrink-0 w-[80%] sm:w-[60%] md:w-[30%]">
+        <img src="resource/images/fastbot-screen-captures/agent.png"
+             class="rounded-2xl shadow-apple mx-auto" />
+        <p class="mt-3 text-sm text-center text-gray-400" data-i18n="shot4"></p>
+      </div>
+
+      <div class="snap-center shrink-0 w-[80%] sm:w-[60%] md:w-[30%]">
+        <img src="resource/images/fastbot-screen-captures/settings.png"
+             class="rounded-2xl shadow-apple mx-auto" />
+        <p class="mt-3 text-sm text-center text-gray-400" data-i18n="shot5"></p>
+      </div>
+
     </div>
-    <div class="min-w-[240px] snap-center">
-      <img src="resource/images/fastbot-screen-captures/chat-list.png" class="rounded-2xl shadow-apple">
-      <p class="mt-2 text-sm text-gray-400" data-i18n="shot2"></p>
-    </div>
-    <div class="min-w-[240px] snap-center">
-      <img src="resource/images/fastbot-screen-captures/chat-without-notification.png" class="rounded-2xl shadow-apple">
-      <p class="mt-2 text-sm text-gray-400" data-i18n="shot3"></p>
-    </div>
-    <div class="min-w-[240px] snap-center">
-      <img src="resource/images/fastbot-screen-captures/agent.png" class="rounded-2xl shadow-apple">
-      <p class="mt-2 text-sm text-gray-400" data-i18n="shot4"></p>
-    </div>
-    <div class="min-w-[240px] snap-center">
-      <img src="resource/images/fastbot-screen-captures/settings.png" class="rounded-2xl shadow-apple">
-      <p class="mt-2 text-sm text-gray-400" data-i18n="shot5"></p>
-    </div>
+
+    <!-- RIGHT BUTTON (OUTSIDE) -->
+    <button
+      aria-label="Next"
+      class="hidden md:flex h-12 w-12 items-center justify-center
+             rounded-full border border-gray-700 bg-gray-900/80
+             hover:border-accent transition"
+      onclick="scrollScreens(1)">
+      <span class="text-xl">&gt;</span>
+    </button>
+
   </div>
 </section>
+
 
 <!-- FEATURES -->
 <section class="bg-gray-900/40 py-24">
@@ -290,6 +334,22 @@ const obs=new IntersectionObserver(entries=>{
  })
 },{threshold:.15})
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+</script>
+
+<script>
+function scrollScreens(direction) {
+  const carousel = document.getElementById('screensCarousel');
+  if (!carousel) return;
+
+  const cardWidth = carousel.querySelector('div')?.offsetWidth || 300;
+  const gap = 24; // coincide con gap-6
+  const scrollAmount = cardWidth + gap;
+
+  carousel.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
 </script>
 
 </body>
