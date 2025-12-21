@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Fastbot</title>
+  <meta name="description" content="Contact Fastbot support and team." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#34C759'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-gray-950 text-gray-100 font-sans overflow-x-hidden">
+
+  <!-- Background glow -->
+  <div class="pointer-events-none fixed inset-0">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-accent/20 blur-3xl rounded-full"></div>
+    <div class="absolute top-1/3 -right-32 w-96 h-96 bg-emerald-400/10 blur-3xl rounded-full"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="relative z-10 max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <img src="resource/images/AppIcon.png" alt="Fastbot Icon" class="w-10 h-10 rounded-xl shadow-lg" />
+      <span class="text-xl font-semibold">Fastbot</span>
+    </div>
+    <button id="langBtn" class="px-4 py-2 rounded-xl bg-gray-900 border border-gray-700 hover:border-accent text-sm transition">EN</button>
+  </header>
+
+  <!-- Main -->
+  <main class="relative z-10 max-w-3xl mx-auto px-6 pb-32">
+
+    <div class="text-center animate-fade-in">
+      <div class="flex justify-center mb-6">
+        <img src="resource/images/AppIcon.png" alt="Fastbot Bot" class="w-20 h-20 rounded-2xl shadow-xl animate-pulse" />
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold" data-i18n="title"></h1>
+      <p class="mt-4 text-gray-400 text-lg" data-i18n="subtitle"></p>
+    </div>
+
+    <!-- Card -->
+    <div class="mt-16 bg-gray-900/70 backdrop-blur-xl border border-gray-800 rounded-2xl shadow-2xl p-8 md:p-10 animate-slide-up">
+
+      <form action="mailto:julicr.torres.dev@gmail.com" method="POST" enctype="text/plain" onsubmit="return validateCaptcha()" class="space-y-6">
+
+        <div>
+          <label class="block text-sm font-medium mb-2" data-i18n="name"></label>
+          <input required name="name" class="w-full rounded-xl bg-gray-950 border border-gray-800 px-4 py-3 focus:border-accent outline-none transition" placeholder="John Doe" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2" data-i18n="email"></label>
+          <input required type="email" name="email" class="w-full rounded-xl bg-gray-950 border border-gray-800 px-4 py-3 focus:border-accent outline-none transition" placeholder="you@email.com" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2" data-i18n="message"></label>
+          <textarea required rows="5" name="message" class="w-full rounded-xl bg-gray-950 border border-gray-800 px-4 py-3 focus:border-accent outline-none transition" placeholder="Write your message..."></textarea>
+        </div>
+
+        <!-- Captcha -->
+        <div class="flex items-center gap-3">
+          <input id="captcha" type="checkbox" class="w-5 h-5 accent-accent" />
+          <label for="captcha" class="text-sm text-gray-400" data-i18n="captcha"></label>
+        </div>
+
+        <button type="submit" class="w-full h-14 rounded-xl bg-accent text-gray-900 font-semibold text-lg shadow-lg shadow-accent/30 hover:shadow-accent/50 hover:-translate-y-0.5 transition">
+          <span data-i18n="send"></span>
+        </button>
+
+        <p class="text-xs text-gray-500 text-center" data-i18n="legal"></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-gray-800 py-10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-gray-500">© 2025 Fastbot</div>
+  </footer>
+
+  <!-- Animations -->
+  <style>
+    @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slide-up { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fade-in 0.8s ease-out both; }
+    .animate-slide-up { animation: slide-up 1s ease-out both; }
+  </style>
+
+  <!-- I18N + CAPTCHA LOGIC -->
+  <script>
+    const translations = {
+      es: {
+        title: 'Contacto',
+        subtitle: '¿Tienes dudas, feedback o necesitas soporte? Escríbenos.',
+        name: 'Nombre',
+        email: 'Email',
+        message: 'Mensaje',
+        captcha: 'No soy un robot',
+        send: 'Enviar mensaje',
+        legal: 'Al enviar este formulario aceptas que nos pongamos en contacto contigo.'
+      },
+      en: {
+        title: 'Contact',
+        subtitle: 'Have questions, feedback or need support? Send us a message.',
+        name: 'Name',
+        email: 'Email',
+        message: 'Message',
+        captcha: 'I am not a robot',
+        send: 'Send message',
+        legal: 'By submitting this form you agree that we may contact you via email.'
+      }
+    }
+
+    const langBtn = document.getElementById('langBtn')
+
+    function setLang(lang) {
+      document.documentElement.lang = lang
+      localStorage.setItem('lang', lang)
+      langBtn.textContent = lang === 'es' ? 'EN' : 'ES'
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.innerHTML = translations[lang][el.dataset.i18n]
+      })
+    }
+
+    langBtn.onclick = () => setLang(document.documentElement.lang === 'es' ? 'en' : 'es')
+    setLang(localStorage.getItem('lang') || (navigator.language.startsWith('es') ? 'es' : 'en'))
+
+    function validateCaptcha() {
+      if (!document.getElementById('captcha').checked) {
+        alert(document.documentElement.lang === 'es' ? 'Por favor confirma que no eres un robot.' : 'Please confirm you are not a robot.')
+        return false
+      }
+      return true
+    }
+  </script>
+
+</body>
+</html>
